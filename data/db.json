@@ -1,0 +1,16 @@
+{
+    "users": [
+
+        { 
+            "username": "vishnu",
+            "address": "lorem ipsum...", 
+            "gender": "Male", "id": 1 },
+
+        { 
+            "username": "priya", 
+            "address": "lorem ipsum...", 
+            "gender": "Female", "id": 2 
+        }
+
+    ]
+  }
