@@ -1,30 +1,30 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
 
     const [username, setUserName] = useState('');
     const [address, setAddress] = useState('');
     const [gender, setGender] = useState('Female');
+    const history = useHistory();
 
     const userCreate = (e) => {
         e.preventDefault();
-        const blog ={username,address,gender}
-        console.log(blog)
-    //     fetch('http://localhost:3002/users', {
-    //         method: 'POST',
-    //         headers: { "Content-Type": "application/json"},
-    //         body: JSON.stringify(blog)
-    // }).then(()=> {
-    //     console.log("new user created",blog)
-    //     })
+        const user ={username,address,gender}
+        fetch('http://localhost:8000/users', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(user)
+        }).then(()=> {
+            console.log("new user created",user)
+            })
+        history.go('/');
     }
-
 
 
     return (  
         <div className="create"> 
         <h2>Add new User</h2>
-
         <form onSubmit={userCreate}>
             <label>UserName:</label>
             <input 
@@ -46,12 +46,8 @@ const Create = () => {
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
             </select>
-            
-            <button>Register</button>
 
-            <p>{username}</p>
-            <p>{address}</p>
-            <p>{gender}</p>
+            <button>Register</button>
         </form>  
         </div>
     );

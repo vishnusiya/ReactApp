@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 npx json-server --watch data/db.json --port 8000
+
+npm install react-router-dom@5
